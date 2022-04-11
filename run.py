@@ -32,12 +32,30 @@ if start_game != "yes":
     print("Goodbye!")
     quit()
 
+# If not maximum score in first attempt, offer a second chance
+def second_chance():
+    if score == 5:
+        print("-" * 35)
+        print(f"Congratulations! {name} for winning in one of the worlds hardest quiz!")
+        end_game()
+    else:
+        print("-" * 35)
+
+    play_again = input("""Not all answers were right... Do you want one more chance? (yes/no) """)
+    print("-" * 35)
+    if play_again == "yes":
+        play_game()
+        end_game()
+    else:
+        end_game()
+
 # End game results function
 def end_game():
     print("-" * 35)
     print("GAME OVER")
     print("-" * 35)
     print(name + ",", "your total score was:", score)
+
     # Add username & score to google sheet
     def add_user_score():
         insertRow = [name, score]
@@ -50,6 +68,7 @@ def end_game():
         quit()
     else:
         print("Okey, thank you for playing! :)")
+    quit()
 
 
 # The game as function
@@ -106,15 +125,15 @@ def play_game():
         print("Correct!")
         score += 1
         print(f"Your score is {score}")
-        print("-" * 35)
     else:
         print("Incorrect! Correct answer is: Guido Van Rossum")
         print(f"Your score is {score}")
-        print("-" * 35)
 
+    second_chance()
     end_game()
 
-
 play_game()
+
+
 
 end_game()
