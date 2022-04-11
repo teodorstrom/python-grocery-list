@@ -13,7 +13,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('python-quiz-sheet')
 
 results = SHEET.worksheet('results')
-
 data = results.get_all_records()
 
 # Welcome text and rules
@@ -27,6 +26,7 @@ print("-" * 35)
 score = 0
 name = input("What should we call you? ")
 
+
 # End game results function
 def end_game():
     print("-" * 35)
@@ -34,11 +34,12 @@ def end_game():
     print("-" * 35)
     print(name + ",", "your total score was:", score)
 
+
 # The game as function
 def play_game():
     global score
 
-    #Questions
+    # Questions
     question1 = input("What does HTML stand for? ")
     if question1.lower() == "hypertext markup language":
         print("Correct!")
@@ -95,7 +96,7 @@ def play_game():
     end_game()
 
 
-# Play game
+# The game starts here
 start_game = input(f"Alright {name}, type (yes) to start the game: ")
 print("-" * 35)
 if start_game == "yes":
@@ -104,12 +105,14 @@ else:
     print("Goodbye!")
     quit()
 
+
 # Add username & score to google sheet
 def add_user_score():
     insertRow = [name, score]
     results.append_row(insertRow, table_range="A1")
 
-addUser = input("Do you want to save your name and score to google sheets? (yes/no) ")
+print("Do you want to save your name and score to google sheets?")
+addUser = input("yes/no: ")
 if addUser == "yes":
     add_user_score()
     print("Results has been successfully added to the google sheet, goodbye!")
