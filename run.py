@@ -14,5 +14,10 @@ SHEET = GSPREAD_CLIENT.open('python-quiz-sheet')
 
 results = SHEET.worksheet('results')
 
-data = results.get_all_values()
-print(data)
+data = results.get_all_records()
+
+
+row = results.row_values(3)
+print(row)
+col = results.col_values(3)
+print(col)
