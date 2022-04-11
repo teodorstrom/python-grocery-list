@@ -134,7 +134,4 @@ def play_game():
     end_game()
 
 play_game()
-
-
-
 end_game()
