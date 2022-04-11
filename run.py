@@ -44,6 +44,7 @@ def second_chance():
     play_again = input("""Not all answers were right... Do you want one more chance? (yes/no) """)
     print("-" * 35)
     if play_again == "yes":
+        score = 0
         play_game()
         end_game()
     else:
