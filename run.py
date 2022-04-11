@@ -1,4 +1,3 @@
-import random
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -27,28 +26,6 @@ print("-" * 35)
 
 score = 0
 name = input("What should we call you? ")
-start_game = input(f"Alright {name}, type (yes) to start the game: ")
-if start_game != "yes":
-    print("Goodbye!")
-    quit()
-
-# If not maximum score in first attempt, offer a second chance
-def second_chance():
-    if score == 5:
-        print("-" * 35)
-        print(f"Congratulations! {name} for winning in one of the worlds hardest quiz!")
-        end_game()
-    else:
-        print("-" * 35)
-
-    play_again = input("""Not all answers were right... Do you want one more chance? (yes/no) """)
-    print("-" * 35)
-    if play_again == "yes":
-        score = 0
-        play_game()
-        end_game()
-    else:
-        end_game()
 
 # End game results function
 def end_game():
@@ -56,21 +33,6 @@ def end_game():
     print("GAME OVER")
     print("-" * 35)
     print(name + ",", "your total score was:", score)
-
-    # Add username & score to google sheet
-    def add_user_score():
-        insertRow = [name, score]
-        results.append_row(insertRow, table_range="A1")
-
-    addUser = input("Do you want to save your name and score to google sheets? (yes/no) ")
-    if addUser == "yes":
-        add_user_score()
-        print("Results has been successfully added to the google sheet, goodbye!")
-        quit()
-    else:
-        print("Okey, thank you for playing! :)")
-    quit()
-
 
 # The game as function
 def play_game():
@@ -130,8 +92,28 @@ def play_game():
         print("Incorrect! Correct answer is: Guido Van Rossum")
         print(f"Your score is {score}")
 
-    second_chance()
     end_game()
 
-play_game()
-end_game()
+
+# Play game
+start_game = input(f"Alright {name}, type (yes) to start the game: ")
+print("-" * 35)
+if start_game == "yes":
+    play_game()
+else:
+    print("Goodbye!")
+    quit()
+
+# Add username & score to google sheet
+def add_user_score():
+    insertRow = [name, score]
+    results.append_row(insertRow, table_range="A1")
+
+addUser = input("Do you want to save your name and score to google sheets? (yes/no) ")
+if addUser == "yes":
+    add_user_score()
+    print("Results has been successfully added to the google sheet, goodbye!")
+    quit()
+else:
+    print("Okey, thank you for playing! :)")
+    quit()
