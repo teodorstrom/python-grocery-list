@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 
+# create a client to interact with the Google Drive API
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -15,7 +16,7 @@ SHEET = GSPREAD_CLIENT.open('python-quiz-sheet')
 results = SHEET.worksheet('results')
 data = results.get_all_records()
 
-# Welcome text and rules
+# Welcome text, rules and let's the user input their name
 print("-" * 35)
 print("""WELCOME TO MY PYTHON-MADE QUIZ!
 GOOD LUCK!
@@ -23,7 +24,6 @@ OBS - This game is NOT case sensetive
 YoUr anSWers CaN be LIke thIs
 """)
 print("-" * 35)
-
 score = 0
 name = input("What should we call you? ")
 
