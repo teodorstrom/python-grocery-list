@@ -36,23 +36,23 @@ while True:
         break
 
 
-"""End game function will be called inside
-the play_game function.
-"""
 def end_game():
+    """End game function will be called inside
+    the play_game function.
+    """
     print("-" * 35)
     print("GAME OVER")
     print("-" * 35)
     print(name + ",", "your total score was:", score)
 
 
-"""
-The game as a function.
-Simply 5 questions that will response with different print statements
-regarding how the player will answer.
-Score value will increase with 1 if correct answer is given.
-"""
 def play_game():
+    """
+    The game as a function.
+    Simply 5 questions that will response with different print statements
+    regarding how the player will answer.
+    Score value will increase with 1 if correct answer is given.
+    """
     global score
 
     # Questions
@@ -122,13 +122,14 @@ else:
     quit()
 
 
-"""The player will be asked if they want to save their name and score to a 
-google sheets document. The data will always be printed in the bottom of the 
-list in the document.
-"""
 def add_user_score():
+    """The player will be asked if they want to save their name and score
+    to a google sheets document. The data will always be printed in the
+    bottom of the list in the document.
+    """
     insertRow = [name, score]
     results.append_row(insertRow, table_range="A1")
+
 
 print("Do you want to save your name and score to google sheets?")
 addUser = input("yes/no: ")
