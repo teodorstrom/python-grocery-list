@@ -20,6 +20,7 @@ print("-" * 35)
 print("""WELCOME TO MY PYTHON-MADE QUIZ!
 GOOD LUCK!
 OBS - This game is NOT case sensetive
+YoUr anSWers CaN be LIke thIs
 """)
 print("-" * 35)
 
@@ -27,7 +28,9 @@ score = 0
 name = input("What should we call you? ")
 
 
-# End game results function
+"""End game function will be called inside
+the play_game function.
+"""
 def end_game():
     print("-" * 35)
     print("GAME OVER")
@@ -35,7 +38,12 @@ def end_game():
     print(name + ",", "your total score was:", score)
 
 
-# The game as function
+"""
+The game as a function.
+Simply 5 questions that will response with different print statements
+regarding how the player will answer.
+Score value will increase with 1 if correct answer is given.
+"""
 def play_game():
     global score
 
@@ -106,7 +114,10 @@ else:
     quit()
 
 
-# Add username & score to google sheet
+"""The player will be asked if they want to save their name and score to a 
+google sheets document. The data will always be printed in the bottom of the 
+list in the document.
+"""
 def add_user_score():
     insertRow = [name, score]
     results.append_row(insertRow, table_range="A1")
