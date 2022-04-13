@@ -16,7 +16,7 @@ SHEET = GSPREAD_CLIENT.open('python-quiz-sheet')
 results = SHEET.worksheet('results')
 data = results.get_all_records()
 
-# Welcome text, rules and let's the user input their name
+# Welcome text and rules
 print("-" * 35)
 print("""WELCOME TO MY PYTHON-MADE QUIZ!
 GOOD LUCK!
@@ -25,7 +25,15 @@ YoUr anSWers CaN be LIke thIs
 """)
 print("-" * 35)
 score = 0
-name = input("What should we call you? ")
+
+# This loop require a name from the user to play the game.
+while True:
+    name = input("What should we call you? ")
+
+    if not name:
+        print("Please, input a valid name")
+    else:
+        break
 
 
 """End game function will be called inside
@@ -107,7 +115,7 @@ def play_game():
 # The game starts here
 start_game = input(f"Alright {name}, type (yes) to start the game: ")
 print("-" * 35)
-if start_game == "yes":
+if start_game.lower() == "yes":
     play_game()
 else:
     print("Goodbye!")
