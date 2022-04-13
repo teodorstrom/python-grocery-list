@@ -3,6 +3,7 @@
 This quiz is a Python terminal game that will run in the Code Institute mock terminal on Heroku.
 
 Users will recieve one question at a time and earn 1 point per correct answer, just like a traditional quiz game.
+[Play the game here](https://python-made-quiz.herokuapp.com/)
 ![Screenshot of Project](assets/images/amIresponsive.png)
 
 
