@@ -1,31 +1,62 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Python-Made Quiz
 
-Welcome teodorstrom,
+This quiz is a Python terminal game that will run in the Code Institute mock terminal on Heroku.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Users will recieve one question at a time and earn 1 point per correct answer, just like a traditional quiz game.
+![Screenshot of Project](assets/images/amIresponsive.png)
 
-## Reminders
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## How to play
 
-## Creating the Heroku app
+This quiz game does not differ from the ones that you are familiar with.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+In this game, the player will need to enter a name before continue to the questions.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+The player will gain 1 point if the answer's correct.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+The game will continue to the next question regardless if the answer's correct/incorrect.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+There is a maximum of 5 points in this game.
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## Features
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### Existing Features
+*   Name input validations
+![screenshot of name validation](assets/images/name_validation.png)
+*   Save username and score to a google sheet
+![screenshot of add_user_score function](assets/images/save_to_sheets.png)
 
------
-Happy coding!
+### Future Features
+*   Add function to randomize questions
+*   Add timer function so player have X seconds to answer
+
+## Testing
+I've tested this project by doing following:
+*   Passing code through PEP8 and confirmed no errors
+*   Give no input for name, save data to google sheets
+*   Game works fine in both local and Code Institute Heroku terminal.
+
+### Bugs
+#### Solved bugs
+*   When I first tried the live version with Heroku i got ModuleNotFoundError for gspread. I fixed that by add necessary text to requirements.txt file.
+
+#### Remaining bugs
+*   No unsolved bugs
+
+#### Validator testing
+*   PEP8
+    *   No errors were found from [PEP8online](https://pep8online.com)
+
+
+## Deployment
+This project was deployed using Code Institute's mock terminal for Heroku.
+*   Steps for deployment:
+    *   Fork or clone this repository
+    *   Create a new Heroku app
+    *   Set the buildbacks to `Python` and `NodeJS` in that order
+    *   Link the heroku app to the repository
+    *   Click on **Deploy**
+
+## Credits
+*   Code Institute for deployment terminal
